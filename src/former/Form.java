@@ -19,7 +19,12 @@ public abstract class Form {
     protected boolean running;
     protected boolean positivRiktning;
     protected Color color;
-
+protected boolean Höger =true;
+    protected int width;
+    
+    
+    
+    
     public Form(int yP, int xP) {
         this.yPos = yP;
         this.xPos = xP;
@@ -40,9 +45,24 @@ public abstract class Form {
     public void setRunning(boolean run) {
         this.running = run;
     }
+ public void setWidth(int w){
+        this.width=w;
+    }
 
+    
     public void move(int x, int y) {
 
+        if(Höger){
+            xPos+=5;
+            if(xPos>width){
+                Höger=false;
+            }
+        }else{
+            xPos-=5;
+            if(xPos<000){
+                Höger=true;
+            }
+        }
     }
 
     public abstract void draw(Graphics g);
